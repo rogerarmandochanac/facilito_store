@@ -5,7 +5,9 @@ from django.contrib.auth import (authenticate,
                                 login, 
                                 logout)
 
-from django.contrib import messages 
+from django.contrib import messages
+
+from .form import RegisterForm
 
 def index_view(request):
     return render(request, 'index.html', {})
@@ -25,3 +27,7 @@ def logout_view(request):
     logout(request)
     messages.error(request, "Session cerrado con exito")
     return redirect("login")
+
+def register_view(request):
+    form = RegisterForm()
+    return render(request, "users/register.html", {'form':form})
