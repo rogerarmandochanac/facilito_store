@@ -1,2 +1,2 @@
-# facilito_store
-Una tienda en django
+# Tienda con carrito de compra
+![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
