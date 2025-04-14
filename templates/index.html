@@ -11,6 +11,11 @@
 </head>
 <body>
     <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+        {% endif %}
         <div class="row">
             <div class="col">
                 <h1>{{message}}</h1>
