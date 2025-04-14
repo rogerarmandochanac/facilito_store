@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block container %}
+<div class="col">
+    <div class="row">
+        <h1 class="mt-4">Registro</h1>
+        <form action="" method="post" class="form-group">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Registro</button>
+            {% if fields.errors %}
+            {{field.errors}}
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock %}

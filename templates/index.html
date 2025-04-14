@@ -1,39 +1,21 @@
+{% extends 'base.html'%}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facilito Store</title>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
-    <div class="container">
-        {% if messages %}
-        {% for message in messages %}
-            {{message}}
-        {% endfor %}
-        {% endif %}
-        <div class="row">
-            <div class="col">
-                <h1>{{message}}</h1>
-                <ul class="list-group">
-                    {% for producto in products %}
-                    <li class="list-group-item">{{producto.title}}
-                        {% if producto.stock %}
-                            <span class="text-success">Disponible</span>
-                        {% else %}
-                            <span class="text-danger">No disponible</span>
-                        {% endif %}
-                    </li>
+{% block container %}
+<div class="row">
+    <div class="col">
+        <h1 class="mt-4 mb-4">Facilito Store</h1>
+        <ul class="list-group">
+            {% for producto in products %}
+            <li class="list-group-item">{{producto.title}}
+                {% if producto.stock %}
+                    <span class="text-success">Disponible</span>
+                {% else %}
+                    <span class="text-danger">No disponible</span>
+                {% endif %}
+            </li>
 
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+            {% endfor %}
+        </ul>
     </div>
-</body>
-<script src="{% static 'js/script.js'%}"></script>
-</html>
+</div>
+{% endblock %}
