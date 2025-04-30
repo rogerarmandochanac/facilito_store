@@ -5,20 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facilito Store</title>
+    <script src="https://kit.fontawesome.com/3a008cc3c3.js" crossorigin="anonymous"></script>
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
 <body>
+    {% include 'navbar.html' %}
     <div class="container">
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert {% if message.tags == 'success'%} alert-success {% else %} alert-danger {% endif%}">
-            <button type="button" class="btn-close", data-bs-dismiss="alert"></button>
-            {{message}}
-        </div>
-        {% endfor %}
-        {% endif %}
+        {% include 'messages.html' %}
         {% block container %}
         {% endblock %}
     </div>

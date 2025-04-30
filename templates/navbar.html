@@ -1,0 +1,29 @@
+{% url 'login' as login%}
+{% url 'logout' as logout %}
+{% url 'register' as register %}
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'index' %}">Facilito Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse hide" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+            <a class="nav-link {% if request.path == logout %}active{%endif%}" href="{{logout}}">Logout</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link {%if request.path == login%}active {%endif%}" href="{{login}}">Login</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link {%if request.path == register%}active{%endif%}" href="{{register}}">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+  </nav>

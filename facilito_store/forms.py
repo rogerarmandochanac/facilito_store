@@ -39,3 +39,4 @@ class RegisterForm(forms.Form):
             email = self.cleaned_data.get("email"),
             password = self.cleaned_data.get("password")
         )
+        
