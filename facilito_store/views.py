@@ -3,15 +3,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import RegisterForm
+from products.models import Product
 
 def index(request):
+    products = Product.objects.all().order_by('-id')
+
     return render(request, 'index.html', {
         "message":"Listado de productos",
-        "products":[
-            {'title': "Playera", "Precio":"$5", "stock":True},
-            {'title': "Camisa", "Precio":"$7", "stock":True},
-            {'title': "Mochila", "Precio":"$20", "stock":False},
-        ]
+        "products":products
         })
 
 def login_view(request):

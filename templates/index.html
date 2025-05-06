@@ -1,20 +1,17 @@
 {% extends 'base.html'%}
 {% load static %}
 {% block container %}
-<div class="row">
+<div class="row mt-3">
     <div class="col">
-        <h1 class="mt-4 mb-4">Facilito Store</h1>
+        <h1 class="mt-4 mb-4 text-center">{{title}}</h1>
         <ul class="list-group">
-            {% for producto in products %}
-            <li class="list-group-item">{{producto.title}}
-                {% if producto.stock %}
-                    <span class="text-success">Disponible</span>
-                {% else %}
-                    <span class="text-danger">No disponible</span>
-                {% endif %}
-            </li>
-
+            <div class="row">
+                {% for object in product_list %}
+                <div class="col-3 mt-2">
+                    {% include 'product/snipets/product.html' with product=object%}
+                </div>
             {% endfor %}
+            </div>
         </ul>
     </div>
 </div>
