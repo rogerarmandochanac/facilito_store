@@ -5,13 +5,8 @@
     <div class="col">
         <h1 class="mt-4 mb-4 text-center">{{title}}</h1>
         <ul class="list-group">
-            <div class="row">
-                {% for object in product_list %}
-                <div class="col-3 mt-2">
-                    {% include 'product/snipets/product.html' with product=object%}
-                </div>
-            {% endfor %}
-            </div>
+            {% include 'product/snipets/search.html'%}
+            {% include 'product/snipets/list.html' %}
         </ul>
     </div>
 </div>
